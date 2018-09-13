@@ -36,7 +36,7 @@ class HomeController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    		model.addAttribute("message", this.message+" "+InetAddress.getLocalHost().getHostName());
+    		model.addAttribute("message", this.message+" "+hostname);
         return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
 }
