@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import thymeleafexamples.layouts.config.ApplicationConfig;
@@ -25,6 +26,7 @@ import thymeleafexamples.layouts.config.ApplicationConfig;
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestComponent
 @ContextConfiguration(classes = {ApplicationConfig.class})
+@TestPropertySource(locations="classpath:test.properties")
 public class AccountServiceDbunitTest {
 	
 	private IDatabaseTester databaseTester;

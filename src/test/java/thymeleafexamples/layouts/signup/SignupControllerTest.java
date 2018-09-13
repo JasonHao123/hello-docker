@@ -1,6 +1,7 @@
 package thymeleafexamples.layouts.signup;
 
 import org.junit.Test;
+import org.springframework.test.context.TestPropertySource;
 
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsString;
@@ -10,6 +11,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import thymeleafexamples.layouts.config.WebAppConfigurationAware;
 
+
+@TestPropertySource(locations="classpath:test.properties")
 public class SignupControllerTest extends WebAppConfigurationAware {
     @Test
     public void displaysSignupForm() throws Exception {
