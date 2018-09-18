@@ -155,6 +155,30 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- mvn command to execute soapui test : com.smartbear.soapui:soapui-maven-plugin:4.6.1:test -->
+			<plugin>
+				<groupId>com.smartbear.soapui</groupId>
+				<artifactId>soapui-maven-plugin</artifactId>
+				<version>4.6.1</version>
+				<executions>
+					<execution>
+						<!-- <phase>integration-test</phase> -->
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<projectFile>hello-docker-soapui-project.xml</projectFile>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.jsoup</groupId>
+						<artifactId>jsoup</artifactId>
+						<version>1.11.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
 			<!-- Docker maven plugin -->
 			<plugin>
