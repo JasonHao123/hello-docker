@@ -141,6 +141,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+	      <resource>
+	        <directory>src/main/resources</directory>
+	         <filtering>true</filtering>
+	      </resource>
+	    </resources>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<!-- Package as an executable jar/war -->
@@ -180,4 +186,30 @@
 			<!-- Docker maven plugin -->
 		</plugins>
 	</build>
+	
+	<profiles>
+		<profile>
+	        <id>static_build_number</id>
+	        <activation>
+	            <property>
+	                <name>!env.BUILD_NUMBER</name>
+	            </property>
+	        </activation>
+	        <properties>
+	            <version>${project.version}</version>
+	        </properties>
+	    </profile>
+	    <profile>
+	        <id>dynamic_build_number</id>
+	        <activation>
+	            <property>
+	                <name>env.BUILD_NUMBER</name>
+	            </property>
+	        </activation>
+	        <properties>
+	            <version>${project.version}-${env.BUILD_NUMBER}</version>
+	        </properties>
+	    </profile>
+	
+	</profiles>
 </project>
